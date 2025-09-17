@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "agent-blueprint",
+  "type": "module",
+  "scripts": {
+    "bundle": "npx labs bundle",
+    "bundle:debug": "npx labs preview --debug"
+  },
+  "dependencies": {
+    "openai": "^5.7.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@surfly/labs": "github:surfly/labs"
+  }
+}

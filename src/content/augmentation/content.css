@@ -1,0 +1,15 @@
+:host {
+    position: fixed;
+    padding: 0 1rem;
+    margin: 2rem;
+    max-width: 25rem;
+    background-color: lightcyan;
+    font-size: 16px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.075rem rgba(0, 0, 0, 0.1);
+}
+
+p {
+    color: darkslategray;
+    line-height: 1.35em;
+}

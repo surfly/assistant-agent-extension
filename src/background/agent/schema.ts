@@ -1,11 +1,20 @@
-/**
- * LLM response schema to enforce consistent, uniformously parsable responses.
- */
+import { z } from "zod";
 
-import { ZodType, z } from "zod";
+const InteractionPromptSchema = z.object({
+    action: z.enum([
+        "click"
+    ]),
+    selector: z.string(),
+    message: z.string()
+});
 
 export const ResponseSchema = z.object({
-    contentDescription: z.string()
+    assistance: z.string(),
+    interactionPrompt: z.object({
+    ...InteractionPromptSchema.shape
+    })
+        .optional()
+        .nullable()
 });
 
 export type TResponseSchema = z.infer<typeof ResponseSchema>;

@@ -1,9 +1,3 @@
-/**
- * Agent class that mediates between the user and an LLM.
- * The agent is 'consulted' as a agentic backend.
- */
-
-import { TInput } from "#shared/types.ts";
 import { TResponseSchema, ResponseSchema } from "./schema.ts";
 import { OpenAIAdapter } from "./LLMAdapter.ts";
 
@@ -16,14 +10,17 @@ export class Agent {
         this.apiAdapter = apiAdapter;
     }
 
-    public async consult(input: TInput | TInput[]): Promise<string> {
+    public async consult(snapshot, question): Promise<TResponseSchema> {
         const analysis: TResponseSchema = await this.apiAdapter
             .request<TResponseSchema>(
                 SYSTEM_PROMPT,
-                input,
+                [
+                    snapshot,
+                    question
+                ],
                 ResponseSchema
             );
 
-        return analysis.contentDescription;
+        return analysis;
     }
 }

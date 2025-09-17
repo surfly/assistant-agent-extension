@@ -1,15 +1,133 @@
 :host {
+    --color-bg: #26081C;
+    --color-bg-gray-translucent: #8B7E87A0;
+    --color-bg-translucent: #1D1018A0;
+    --color-fg: #FFFFFF;
+    --color-accent: #CEFF1A;
+
+    --border-radius: 0.25em;
+
+    box-sizing: border-box;
     position: fixed;
-    padding: 0 1rem;
-    margin: 2rem;
-    max-width: 25rem;
-    background-color: lightcyan;
-    font-size: 16px;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem 0.075rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 5vh !important;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000000;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    height: 0;
+    min-width: 17.5em;
+    max-width: 32.5em;
+    background-color: var(--color-bg-translucent);
+    backdrop-filter: blur(20px);
+    color: var(--color-fg);
+    font-family: "Rethink Sans";
+    border: 1px solid var(--color-bg-gray-translucent);
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.75em 0.075em rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    transition: all 200ms;
+    filter: opacity(0);
+    z-index: 1;
+}
+section.active {
+    padding: 1em;
+    margin-top: 1rem;
+    height: auto;
+    pointer-events: auto;
+    filter: opacity(1);
+    z-index: 2;
+}
+
+section.horizontal {
+    flex-direction: row;
+    gap: 2rem;
+}
+
+section, section * {
+    font-size: 18px;
 }
 
 p {
-    color: darkslategray;
+    margin: 0;
+    min-height: 1.35em;
     line-height: 1.35em;
+}
+
+a {
+    cursor: pointer;
+    color: var(--color-accent);
+}
+
+button, textarea {
+    box-sizing: content-box;
+    padding: 0.5em 0.75em;
+    font-size: inherit;
+    border-radius: var(--border-radius);
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    line-height: 1em;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    font-weight: 600;
+    font-family: "Rethink Sans";
+}
+button:hover {
+    filter: brightness(1.1);
+}
+
+button svg {
+    display: none;
+    width: 1.5em;
+    height: 1.5em;
+}
+button:not(.active) svg:first-of-type {
+    display: block !important;
+}
+button.active svg:last-of-type {
+    display: block !important;
+}
+
+textarea {
+    resize: none;
+    width: 25em;
+    height: 5em;
+    background-color: var(--color-bg-translucent);
+    color: var(--color-fg);
+    line-height: 1.35em;
+    font-family: inherit;
+}
+textarea:hover, textarea:focus {
+    filter: brightness(1.1);
+}
+
+.input:not(.active) {
+    display: none !important;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75em;
+    margin-top: 0.5em;
 }

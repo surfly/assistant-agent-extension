@@ -1,7 +1,3 @@
-/**
- * Snapshot class serialize content tab runtime UI state.
- */
-
 abstract class Snapshot<T> {
     public abstract take(): Promise<T>;
 }
@@ -13,7 +9,14 @@ export class DOMSnapshot extends Snapshot<string> {
         const snapshot = await browser.webfuseSession
             .automation
             .take_dom_snapshot({
-                modifier: 'downsample'
+                rootSelector: "body",
+                modifier: {
+                    name: "AdaptiveD2Snap",
+                    params: {
+                        maxTokens: 2**15,
+                        maxIterations: 2
+                    }
+                }
             });
 
         return snapshot;

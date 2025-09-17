@@ -29,13 +29,16 @@ browser.runtime.onMessage
         switch(message.cmd) {
             case "agency-request": {
                 try {
-                    const contentDescription: string = await agent.consult(message.data?.snapshot);
+                    const data: TResponseSchema = await agent.consult(
+                        message.data?.snapshot,
+                        message.data?.question
+                    );
 
                     browser.tabs
                         .sendMessage(await getCurrentTab(), {
                             target: "content",
                             cmd: "agency-response",
-                            data: { contentDescription }
+                            data
                         });
                 } catch(err) {
                     console.error(err);

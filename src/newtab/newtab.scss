@@ -1,0 +1,57 @@
+body {
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    h1 {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--color-fg-gray);
+    font-size: 0.8em;
+
+    a {
+        display: inline-block;
+        transform: translateY(0.05rem);
+    }
+    svg {
+        height: 1.625em;
+    }
+}
+
+.browse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    input {
+        min-width: 25rem;
+    }
+}
+
+#webfuse-link {
+    filter: grayscale(1) opacity(0.75);
+
+    &:hover {
+        filter: grayscale(0);
+    }
+}

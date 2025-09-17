@@ -1,8 +1,3 @@
-/**
- * Utiliy functions shared among components.
- * > import ... from "#shared/...".
- */
-
 export function readEnv(name: string): {
     string: string;
     number: number;

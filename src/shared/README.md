@@ -1,1 +1,0 @@
-The shared directory contains resources that are available from all components.

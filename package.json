@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "agent-blueprint",
+  "name": "assistant-agent",
   "type": "module",
   "scripts": {
     "bundle": "npx labs bundle",
